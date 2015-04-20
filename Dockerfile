@@ -1,13 +1,16 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 
+# Based on work by Carlos Moro
 MAINTAINER Carlos Moro <cmoro@deusto.es>
+MAINTAINER KikoV <kikov@simplehc.com>
 
-ENV TOMCAT_VERSION 8.0.15
+ENV TOMCAT_VERSION 8.0.21
+ENV MONGODB_VERSION 3.0.2
 
 # Set locales
-RUN locale-gen en_GB.UTF-8
-ENV LANG en_GB.UTF-8
-ENV LC_CTYPE en_GB.UTF-8
+RUN locale-gen es_ES.UTF-8
+ENV LANG es_ES.UTF-8
+ENV LC_CTYPE es_ES.UTF-8
 
 # Fix sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -34,12 +37,9 @@ RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-8/v${TOMCAT
 # Uncompress
 RUN tar xzvf /tmp/tomcat.tgz -C /opt
 RUN mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat
-RUN rm /tmp/tomcat.tgz
 
 # Remove garbage
-RUN rm -rf /opt/tomcat/webapps/examples
-RUN rm -rf /opt/tomcat/webapps/docs
-RUN rm -rf /opt/tomcat/webapps/ROOT
+RUN rm /tmp/tomcat.tgz && rm -rf /opt/tomcat/webapps/examples && rm -rf /opt/tomcat/webapps/docs && rm -rf /opt/tomcat/webapps/ROOT
 
 # Add admin/admin user
 ADD tomcat-users.xml /opt/tomcat/conf/
@@ -49,8 +49,7 @@ ENV PATH $PATH:$CATALINA_HOME/bin
 
 EXPOSE 8080
 EXPOSE 8009
+EXPOSE 4110
 VOLUME "/opt/tomcat/webapps"
 WORKDIR /opt/tomcat
 
-# Launch Tomcat
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]

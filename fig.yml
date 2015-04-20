@@ -1,7 +1,8 @@
 tomcat:
-  image: dordoka/tomcat8
+  image: kikov79/tomcat8
   ports:
   - "8080:8080"
   - "9009:8009"
+  - "4110:4110"
   volumes:
   - "/opt/tomcat/webapps/:/opt/tomcat/webapps/"
