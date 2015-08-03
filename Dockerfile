@@ -2,10 +2,9 @@ FROM ubuntu:14.10
 
 # Based on work by Carlos Moro
 MAINTAINER Carlos Moro <cmoro@deusto.es>
-MAINTAINER KikoV <kikov@simplehc.com>
+MAINTAINER KikoV <kikov@kikov.org>
 
-ENV TOMCAT_VERSION 8.0.21
-ENV MONGODB_VERSION 3.0.2
+ENV TOMCAT_VERSION 8.0.24
 
 # Set locales
 RUN locale-gen es_ES.UTF-8
