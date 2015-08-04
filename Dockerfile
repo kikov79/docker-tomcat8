@@ -49,4 +49,4 @@ EXPOSE 4110
 VOLUME "/opt/tomcat/webapps"
 WORKDIR /opt/tomcat
 
-CMD bin/catalina.sh start
+CMD /opt/tomcat/bin/run.sh
