@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:14.04
 
 # Based on work by Carlos Moro
 MAINTAINER Carlos Moro <cmoro@deusto.es>
