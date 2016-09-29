@@ -3,6 +3,8 @@ docker-tomcat8
 
 Ubuntu 14.04, Oracle JDK 8 and Tomcat 8 based docker container.
 
+[![](https://images.microbadger.com/badges/version/kikov79/tomcat8.svg)](http://microbadger.com/images/kikov79/tomcat8 "Get your own version badge on microbadger.com")
+
 # Description
 You should run this container on the background and mount the volume with your web app inside.
 
