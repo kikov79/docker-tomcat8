@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 MAINTAINER Carlos Moro <cmoro@deusto.es>
 MAINTAINER KikoV <kikov@kikov.org>
 
-ENV TOMCAT_VERSION 8.0.28
+ENV TOMCAT_VERSION 8.0.29
 
 # Set locales
 RUN locale-gen es_ES.UTF-8
@@ -46,7 +46,7 @@ ENV PATH $PATH:$CATALINA_HOME/bin
 EXPOSE 8080
 EXPOSE 8009
 EXPOSE 4110
-VOLUME "/opt/tomcat/webapps"
+#VOLUME "/opt/tomcat/webapps"
 WORKDIR /opt/tomcat
 
 CMD /opt/tomcat/bin/run.sh
